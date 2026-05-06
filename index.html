@@ -132,8 +132,8 @@
     }
     .hamburger span {
       display: block;
-      width: 22px;
-      height: 2px;
+      width: 28px;
+      height: 2.5px;
       background: var(--cream);
       border-radius: 1px;
       transition: all 0.28s;
@@ -630,14 +630,48 @@
       color: rgba(245, 239, 230, 0.17);
     }
 
+    /* Mobile-only hero product image */
+    .hero-product-mobile { display: none; }
+
     /* ─── RESPONSIVE ─── */
     @media (max-width: 920px) {
       .specs-layout { grid-template-columns: 1fr; }
       .nf-wrap { max-width: 100%; }
     }
     @media (max-width: 768px) {
+      /* Disclaimer: move to bottom-center so it doesn't clash with nav */
+      .disclaimer {
+        top: auto;
+        right: auto;
+        bottom: 16px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      /* Hero: auto height so product image fits, uniform overlay hides bg product */
+      #hero {
+        height: auto;
+        min-height: 100vh;
+        padding: 90px 0 72px;
+        align-items: flex-start;
+      }
+      .hero-overlay {
+        background: rgba(12, 5, 1, 0.78);
+      }
+      .hero-text { max-width: 100%; }
       #hero h1 { font-size: 2.4rem; }
-.photo-cards { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+
+      /* Show centered product image below badges on mobile */
+      .hero-product-mobile {
+        display: block;
+        max-width: 200px;
+        width: 100%;
+        margin: 28px auto 0;
+        animation: float 4.2s ease-in-out infinite;
+        filter: drop-shadow(0 20px 50px rgba(30, 15, 5, 0.25));
+      }
+
+      .photo-cards { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
       .benefits-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
     }
     @media (max-width: 600px) {
@@ -647,7 +681,6 @@
     }
     @media (max-width: 460px) {
       #hero h1 { font-size: 2rem; }
-      .blend-visual { height: 210px; }
       .benefit-card { flex-direction: column; gap: 14px; }
     }
   </style>
@@ -692,6 +725,7 @@
           <span class="hero-badge">Adaptogens</span>
           <span class="hero-badge">100% Natural</span>
         </div>
+        <img src="images/JV_G1_front.png" alt="Vitality Edition" class="hero-product-mobile">
       </div>
     </div>
     <div class="scroll-ind">
