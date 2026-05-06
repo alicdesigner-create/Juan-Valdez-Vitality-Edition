@@ -372,39 +372,14 @@
       margin: 0 auto;
     }
 
-    /* Visual: product LEFT, mushrooms RIGHT */
-    .blend-visual {
-      position: relative;
-      max-width: 760px;
-      height: 420px;
-      margin: 0 auto 72px;
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-    }
-    .blend-product {
-      position: relative;
-      width: 46%;
-      max-width: 320px;
-      height: 100%;
-      object-fit: contain;
-      object-position: bottom center;
-      z-index: 2;
-      flex-shrink: 0;
+    /* Visual: centered product */
+    .blend-hero {
+      display: block;
+      max-width: 340px;
+      width: 100%;
+      margin: 48px auto;
       animation: float 4.2s ease-in-out infinite;
-      filter: drop-shadow(0 28px 44px rgba(46, 26, 14, 0.26));
-    }
-    .blend-mushrooms {
-      position: relative;
-      width: 44%;
-      max-width: 300px;
-      height: 90%;
-      object-fit: contain;
-      object-position: bottom center;
-      opacity: 0.88;
-      z-index: 1;
-      flex-shrink: 0;
-      margin-left: -28px;
+      filter: drop-shadow(0 20px 50px rgba(30, 15, 5, 0.25));
     }
     @keyframes float {
       0%, 100% { transform: translateY(0px); }
@@ -662,10 +637,7 @@
     }
     @media (max-width: 768px) {
       #hero h1 { font-size: 2.4rem; }
-      .blend-visual { height: 260px; max-width: 480px; }
-      .blend-product { max-width: 220px; }
-      .blend-mushrooms { max-width: 200px; margin-left: -20px; }
-      .photo-cards { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+.photo-cards { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
       .benefits-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
     }
     @media (max-width: 600px) {
@@ -761,11 +733,7 @@
         <p class="sec-sub">Each component selected for its exceptional quality and science-backed benefits.</p>
       </div>
 
-      <!-- Product left, mushrooms right -->
-      <div class="blend-visual reveal">
-        <img src="images/JV_G1_right.png" alt="Juan Valdez Vitality Edition" class="blend-product">
-        <img src="images/mushrooms.png" alt="Functional mushrooms" class="blend-mushrooms">
-      </div>
+      <img src="images/JV_G1_front.png" alt="Juan Valdez Vitality Edition" class="blend-hero reveal">
 
       <!-- 3 photo cards -->
       <div class="photo-cards">
