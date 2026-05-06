@@ -10,8 +10,8 @@
   <style>
     /* ─── TOKENS ─── */
     :root {
-      --dark:        #1E0F05;
-      --brown:       #5C3D2E;
+      --dark:        #2E1A0E;
+      --brown:       #8B6E5A;
       --copper:      #C9A96E;
       --moss:        #5C6B3A;
       --cream:       #F5EFE6;
@@ -49,7 +49,7 @@
       top: 16px;
       right: 16px;
       z-index: 9999;
-      background: rgba(30, 15, 5, 0.82);
+      background: rgba(46, 26, 14, 0.82);
       border: 1px solid rgba(201, 169, 110, 0.5);
       padding: 6px 14px;
       border-radius: 20px;
@@ -72,7 +72,7 @@
       transition: background 0.35s ease, box-shadow 0.35s ease, backdrop-filter 0.35s ease;
     }
     nav.scrolled {
-      background: rgba(30, 15, 5, 0.96);
+      background: rgba(46, 26, 14, 0.96);
       backdrop-filter: blur(14px);
       box-shadow: 0 2px 28px rgba(0, 0, 0, 0.4);
     }
@@ -145,7 +145,7 @@
         display: none;
         position: absolute;
         top: 70px; left: 0; right: 0;
-        background: rgba(30, 15, 5, 0.98);
+        background: rgba(46, 26, 14, 0.98);
         flex-direction: column;
         gap: 0;
         padding: 10px 0 16px;
@@ -202,7 +202,8 @@
       margin-bottom: 22px;
     }
     #hero h1 {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Inter', sans-serif;
+      font-weight: 800;
       font-size: clamp(2.6rem, 5.8vw, 4.5rem);
       color: var(--cream);
       line-height: 1.08;
@@ -315,7 +316,8 @@
     .stat-item:last-child { border-right: none; }
     .stat-num {
       display: block;
-      font-family: 'Playfair Display', serif;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
       font-size: 2.1rem;
       color: var(--copper);
       line-height: 1;
@@ -349,7 +351,8 @@
       margin-bottom: 14px;
     }
     .sec-header h2 {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Inter', sans-serif;
+      font-weight: 800;
       font-size: clamp(1.9rem, 3.8vw, 3rem);
       color: var(--text);
       line-height: 1.18;
@@ -369,35 +372,39 @@
       margin: 0 auto;
     }
 
-    /* Visual: mushrooms + product */
+    /* Visual: product LEFT, mushrooms RIGHT */
     .blend-visual {
       position: relative;
-      max-width: 800px;
+      max-width: 760px;
       height: 420px;
       margin: 0 auto 72px;
-    }
-    .blend-mushrooms {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 58%;
-      height: 100%;
-      object-fit: contain;
-      object-position: bottom left;
-      opacity: 0.9;
-      z-index: 1;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
     }
     .blend-product {
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      width: 50%;
+      position: relative;
+      width: 46%;
+      max-width: 320px;
       height: 100%;
       object-fit: contain;
-      object-position: bottom right;
+      object-position: bottom center;
       z-index: 2;
+      flex-shrink: 0;
       animation: float 4.2s ease-in-out infinite;
-      filter: drop-shadow(0 28px 44px rgba(30, 15, 5, 0.26));
+      filter: drop-shadow(0 28px 44px rgba(46, 26, 14, 0.26));
+    }
+    .blend-mushrooms {
+      position: relative;
+      width: 44%;
+      max-width: 300px;
+      height: 90%;
+      object-fit: contain;
+      object-position: bottom center;
+      opacity: 0.88;
+      z-index: 1;
+      flex-shrink: 0;
+      margin-left: -28px;
     }
     @keyframes float {
       0%, 100% { transform: translateY(0px); }
@@ -438,8 +445,9 @@
       margin-bottom: 8px;
     }
     .card-body h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.2rem;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 1.15rem;
       color: var(--text);
       margin-bottom: 10px;
     }
@@ -533,8 +541,9 @@
       padding: 38px 34px;
     }
     .specs-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.2rem;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
       color: var(--copper);
       margin-bottom: 30px;
     }
@@ -653,7 +662,9 @@
     }
     @media (max-width: 768px) {
       #hero h1 { font-size: 2.4rem; }
-      .blend-visual { height: 280px; }
+      .blend-visual { height: 260px; max-width: 480px; }
+      .blend-product { max-width: 220px; }
+      .blend-mushrooms { max-width: 200px; margin-left: -20px; }
       .photo-cards { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
       .benefits-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
     }
@@ -750,10 +761,10 @@
         <p class="sec-sub">Each component selected for its exceptional quality and science-backed benefits.</p>
       </div>
 
-      <!-- Mushrooms + product visual -->
+      <!-- Product left, mushrooms right -->
       <div class="blend-visual reveal">
-        <img src="images/mushrooms.png" alt="Functional mushrooms" class="blend-mushrooms">
         <img src="images/JV_G1_right.png" alt="Juan Valdez Vitality Edition" class="blend-product">
+        <img src="images/mushrooms.png" alt="Functional mushrooms" class="blend-mushrooms">
       </div>
 
       <!-- 3 photo cards -->
